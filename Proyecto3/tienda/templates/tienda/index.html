@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block titulo%}
+    ficha
+{% endblock titulo%}
+
+{% block contenido%}
+   {%for f in ficha %}
+        <h1>{{f.mascota}} {{f.raza}}  {{f.dueño}} </h1>
+        <h2>{{f.tipo}}</h2>
+   {% endfor%}
+{% endblock contenido%}
