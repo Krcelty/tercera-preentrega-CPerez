@@ -25,7 +25,7 @@ class Edad(models.Model):
         return self.edad
 
 class Peso(models.Model):
-    peso = models.DecimalField(max_digits=2)
+    peso = models.DecimalField(max_digits=4, decimal_places=2)
 
 class ficha(models.Model):
     nombre = models.PositiveIntegerField(unique=True)
