@@ -12,7 +12,7 @@ class Dueño(models.Model):
     def __str__(self) -> str:
         return self.nombre
 
-class Tipo(models.Model):
+class Especie(models.Model):
     nombre = models.CharField(max_length=255)
 
     def __str__(self) -> str:
@@ -27,11 +27,18 @@ class Edad(models.Model):
 class Peso(models.Model):
     peso = models.DecimalField(max_digits=4, decimal_places=2)
 
+class Veterinario(models.Model):
+    nombre = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return self.nombre
+
 class ficha(models.Model):
-    nombre = models.PositiveIntegerField(unique=True)
+    numero_ficha = models.PositiveIntegerField(unique=True)
     mascota = models.ForeignKey(Mascota, on_delete=models.SET_NULL, null=True, blank=True )
     dueño = models.ForeignKey(Dueño, on_delete=models.SET_NULL, null=True, blank=True )
-    tipo = models.ManyToManyField(Tipo)
+    especie = models.ManyToManyField(Especie)
+    veterinario = models.ManyToManyField(Veterinario)
 
 
 

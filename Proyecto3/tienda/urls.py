@@ -6,5 +6,7 @@ app_name = "tienda"
 
 urlpatterns = [
     path("", views.index,name="index"),
+    path("", views.index,name="ingreso"),
+    path("", views.index,name="modificacion"),
    
 ]

@@ -6,3 +6,5 @@ def index(request):
     consulta = models.ficha.objects.all()
     contexto = {"ficha": consulta}
     return render(request,"tienda/index.html", contexto )
+
+

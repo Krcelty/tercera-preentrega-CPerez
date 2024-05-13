@@ -1,12 +1,16 @@
 {% extends 'core/base.html' %}
 
-{% block titulo%}
-    ficha
-{% endblock titulo%}
+{% block title%}
+    Ficha Paciente
+{% endblock title%}
 
-{% block contenido%}
+{% block bode_title%}
+    Ficha Paciente
+{% endblock bode_title%}
+
+{%  block content%}  
    {%for f in ficha %}
-        <h1>{{f.mascota}} {{f.raza}}  {{f.dueño}} </h1>
-        <h2>{{f.tipo}}</h2>
+        <h1>{{f.mascota}} {{f.dueño}}  </h1>
+        <h2>{{f.especie}}</h2>
    {% endfor%}
-{% endblock contenido%}
+{% endblock content%}
