@@ -1,14 +1,16 @@
 from django import forms
 from . import  models
 
+
 class MascotaForm(forms.ModelForm):
     nueva_mascota = forms.CharField(label="Nueva Mascota", required=False)
     nuevo_dueño = forms.CharField(label="Nuevo Dueño", required=False)
     nueva_especie = forms.CharField(label="Nueva Especie", required=False)
+    numero_ficha = forms.IntegerField(label="Número de Ficha")
 
     class Meta:
         model = models.Ficha
-        fields = ['numero_ficha' ]
+        fields = ['numero_ficha','nueva_mascota', 'nuevo_dueño', 'nueva_especie' ]
 
     def save(self, commit=True):
         instance = super().save(commit=False)

@@ -23,7 +23,9 @@ def ingresar_mascota(request):
     if request.method == 'POST':
         form = MascotaForm(request.POST)
         if form.is_valid():
-            form.save()  
+            mascota = form.save(commit=False)
+            mascota.numero_ficha = request.POST.get('numero_ficha')
+            mascota.save()
             return redirect('tienda:index')  
     else:
         form = MascotaForm()
