@@ -2,11 +2,13 @@ from django.urls import path
 
 from . import views
 
+
 app_name = "tienda"
 
 urlpatterns = [
     path("", views.index,name="index"),
-    path("", views.index,name="ingreso"),
-    path("", views.index,name="modificacion"),
+    path("ingreso/", views.ingresar_mascota,name="ingreso"),
+    path("modificacion/", views.modificacion,name="modificacion"),
    
 ]
+

@@ -11,6 +11,11 @@
 {%  block content%}  
    {%for f in ficha %}
         <h1>{{f.mascota}} {{f.dueño}}  </h1>
-        <h2>{{f.especie}}</h2>
+        <h2>{{f.numero_ficha }}</h2>
+        <h2>
+            {% for especie in f.especie.all %}
+                {{ especie }}
+            {% endfor %}
+        </h2>
    {% endfor%}
 {% endblock content%}
