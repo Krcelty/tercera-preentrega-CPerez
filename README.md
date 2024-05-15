@@ -1,5 +1,11 @@
 # Tercera Pre-Entrega Constanza Perez
 
-## explicación del servicios
+## Acerca del proyecto
 
-## explicación técnica
+## Aplicaciones
+
+## Modelos
+
+## Mejoras Futuras
+
+## Problemas conocidos

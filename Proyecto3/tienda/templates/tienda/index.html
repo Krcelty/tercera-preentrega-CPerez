@@ -1,21 +1,30 @@
 {% extends 'core/base.html' %}
 
-{% block title%}
+{% block title %}
     Ficha Paciente
-{% endblock title%}
+{% endblock title %}
 
-{% block bode_title%}
+{% block bode_title %}
     Ficha Paciente
-{% endblock bode_title%}
+{% endblock bode_title %}
 
-{%  block content%}  
-   {%for f in ficha %}
-        <h1>{{f.mascota}} {{f.dueño}}  </h1>
-        <h2>{{f.numero_ficha }}</h2>
+{% block content %}
+<form action="{% url 'tienda:index' %}" method="get">
+    <input type="text" name="q" placeholder="Buscar...">
+    <button type="submit">Buscar</button>
+</form>
+{% if fichas %}
+    {% for ficha in fichas %}
+        <h2>{{ ficha.numero_ficha }}</h2>
+        <h1>{{ ficha.mascota }} {{ ficha.dueño }}</h1>
         <h2>
-            {% for especie in f.especie.all %}
+            {% for especie in ficha.especie.all %}
                 {{ especie }}
             {% endfor %}
         </h2>
-   {% endfor%}
-{% endblock content%}
+    {% endfor %}
+{% endif %}
+{% if not fichas and request.GET.q %}
+    <p>No se encontraron fichas con ese nombre de mascota.</p>
+{% endif %}
+{% endblock content %}
