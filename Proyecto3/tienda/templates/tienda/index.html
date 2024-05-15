@@ -16,12 +16,7 @@
 {% if fichas %}
     {% for ficha in fichas %}
         <h2>{{ ficha.numero_ficha }}</h2>
-        <h1>{{ ficha.mascota }} {{ ficha.dueño }}</h1>
-        <h2>
-            {% for especie in ficha.especie.all %}
-                {{ especie }}
-            {% endfor %}
-        </h2>
+        <h1>{{ ficha.mascota }} {{ ficha.dueño }} {{ ficha.especie }}</h1>
     {% endfor %}
 {% endif %}
 {% if not fichas and request.GET.q %}
