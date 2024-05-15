@@ -8,16 +8,12 @@ def index(request):
     contexto = {"ficha": consulta}
     return render(request,"tienda/index.html", contexto )
 
-def ingreso(request):
-    consulta = models.Ficha.objects.all()
-    contexto = {"ficha": consulta}
-    return render(request,"tienda/ingreso.html", contexto )
-
 
 def modificacion(request):
     consulta = models.Ficha.objects.all()
     contexto = {"ficha": consulta}
     return render(request,"tienda/modificacion.html", contexto )
+
 
 def ingresar_mascota(request):
     if request.method == 'POST':

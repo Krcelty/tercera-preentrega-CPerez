@@ -4,16 +4,18 @@
     Ingreso Paciente
 {% endblock title %}
 
-{% block bode_title%}
+{% block bode_title %}
+<div class="text-center">
     Ingreso Paciente
+</div>
 {% endblock bode_title %}
 
 {% block content %}  
-<form method="post">
+<form method="post" class="container " >
     {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <button type="submit">Guardar</button>
+    <div class="text-center ">
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </div>    
 </form>
 {% endblock content %}
