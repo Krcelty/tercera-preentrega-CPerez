@@ -3,16 +3,14 @@ from django.shortcuts import render, redirect
 from . import models 
 from .forms import MascotaForm
 
-#def index(request):
-#    consulta = models.Ficha.objects.all()
-#    contexto = {"ficha": consulta}
-#    return render(request,"tienda/index.html", contexto )
-
 
 def modificacion(request):
-    consulta = models.Ficha.objects.all()
-    contexto = {"ficha": consulta}
-    return render(request,"tienda/modificacion.html", contexto )
+    query = request.GET.get('q')
+    fichas = None
+    if query:
+        fichas = models.Ficha.objects.filter(mascota__nombre__icontains=query)
+    contexto = {"fichas": fichas}
+    return render(request, "tienda/modificacion.html", contexto)
 
 
 def ingresar_mascota(request):
@@ -29,11 +27,6 @@ def ingresar_mascota(request):
 
 
 def index(request):
-    query = request.GET.get('q')
-    fichas = None
-    if query:
-        fichas = models.Ficha.objects.filter(mascota__nombre__icontains=query)
-    contexto = {"fichas": fichas}
-    return render(request, "tienda/index.html", contexto)
-
-
+    fichas = models.Ficha.objects.all()
+    return render(request, "tienda/index.html", {'fichas': fichas})
+    

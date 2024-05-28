@@ -26,7 +26,8 @@ class Ficha(models.Model):
 
     def __str__(self) -> str:
         return f"Ficha {self.numero_ficha}"
-    
+
+
 
 
 
