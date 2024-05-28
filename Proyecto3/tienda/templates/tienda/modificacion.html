@@ -11,12 +11,12 @@
 {%  block content%}  
 <form action="{% url 'tienda:modificacion' %}" method="get">
     <input type="text" name="q" placeholder="Buscar...">
-    <button type="submit">Buscar</button>
+    <button type="submit" class="btn btn-primary">Buscar</button>
 </form>
 {% if fichas %}
     {% for ficha in fichas %}
         <h2>{{ ficha.numero_ficha }}</h2>
-        <h1>{{ ficha.mascota }} {{ ficha.dueño }} {{ ficha.especie }}</h1>
+        <h1>{{ ficha.mascota }} {{ ficha.dueño }} {{ ficha.especie }} {{ ficha.consulta }}</h1>
     {% endfor %}
 {% endif %}
 {% if not fichas and request.GET.q %}
