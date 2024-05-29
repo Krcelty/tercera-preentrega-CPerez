@@ -53,15 +53,13 @@ class IngresarMascotaCreate(CreateView):
 #Vista basa en clases, para ver todas las fichas listadas
 class FichaListView(ListView):
     model = Ficha
-    template_name = 'tienda/ficha_list.html'
-    context_object_name = 'fichas'
    
     # def get_queryset(self) -> Any:
     #       queryset = super().get_queryset()
     #       return queryset
-    def get_queryset(self) -> Any:
-        queryset = super().get_queryset()
-        query = self.request.GET.get('q')
-        if query:
-            queryset = queryset.filter(mascota__nombre__icontains=query)
-        return queryset    
+    # def get_queryset(self) -> Any:
+    #     queryset = super().get_queryset()
+    #     query = self.request.GET.get('q')
+    #     if query:
+    #         queryset = queryset.filter(mascota__nombre__icontains=query)
+    #     return queryset    
