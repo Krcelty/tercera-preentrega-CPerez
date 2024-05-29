@@ -1,18 +1,10 @@
 {% extends 'core/base.html' %}
+{% block bode_title %}
+Listado de Fichas Pacientes
+{% endblock bode_title %}
 
-{% block title%}
-    Modificacion Paciente
-{% endblock title%}
+{% block content %}
 
-{% block bode_title%}
-    Modificacion Paciente
-{% endblock bode_title%}
-
-{%  block content%}  
-<form action="{% url 'tienda:modificacion' %}" method="get">
-    <input type="text" name="q" placeholder="Buscar...">
-    <button type="submit" class="btn btn-primary">Buscar</button>
-</form>
 {% if object_list %}
     <h1 class="my-3">Fichas Pacientes</h1>
     <table class="table">
@@ -22,6 +14,10 @@
             <th scope="col">Mascota</th>
             <th scope="col">Dueño</th>
             <th scope="col">Especie</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Raza</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Observacion</th>
           </tr>
         </thead>
         <tbody>
@@ -31,10 +27,14 @@
             <td>{{ ficha.mascota }}</td>
             <td>{{ ficha.dueño }}</td>
             <td>{{ ficha.especie }}</td>
+            <td>{{ ficha.sexo_mascota }}</td>
+            <td>{{ ficha.raza_mascota }}</td>
+            <td>{{ ficha.edad_mascota }}</td>
+            <td>{{ ficha.consulta }}</td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
   {% endif %}
-    
-{% endblock content%}
+
+{% endblock content %}
