@@ -11,6 +11,7 @@ Listado de Fichas Pacientes
         <thead>
           <tr>
             <th scope="col" class="columna-ficha">Número de Ficha</th>
+            <th scope="col">id</th>
             <th scope="col">Mascota</th>
             <th scope="col">Dueño</th>
             <th scope="col">Especie</th>
@@ -23,6 +24,7 @@ Listado de Fichas Pacientes
         <tbody>
           {% for ficha in object_list %}
           <tr>
+            <td>{{ ficha.id }}</td>
             <td>{{ ficha.numero_ficha }}</td>
             <td>{{ ficha.mascota }}</td>
             <td>{{ ficha.dueño }}</td>

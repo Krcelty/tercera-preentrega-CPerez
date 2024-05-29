@@ -1,40 +1,31 @@
 {% extends 'core/base.html' %}
 
-{% block title%}
-    Modificacion Paciente
-{% endblock title%}
+{% block title %}
+    Modificación Paciente
+{% endblock title %}
 
-{% block bode_title%}
-    Modificacion Paciente
-{% endblock bode_title%}
+{% block bode_title %}
+    Modificación Paciente
+{% endblock bode_title %}
 
-{%  block content%}  
-<form action="{% url 'tienda:modificacion' %}" method="get">
-    <input type="text" name="q" placeholder="Buscar...">
-    <button type="submit" class="btn btn-primary">Buscar</button>
-</form>
-{% if object_list %}
-    <h1 class="my-3">Fichas Pacientes</h1>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col" class="columna-ficha">Número de Ficha</th>
-            <th scope="col">Mascota</th>
-            <th scope="col">Dueño</th>
-            <th scope="col">Especie</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for ficha in object_list %}
-          <tr>
-            <td>{{ ficha.numero_ficha }}</td>
-            <td>{{ ficha.mascota }}</td>
-            <td>{{ ficha.dueño }}</td>
-            <td>{{ ficha.especie }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-  {% endif %}
-    
-{% endblock content%}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-4">Modificar Paciente</h5>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

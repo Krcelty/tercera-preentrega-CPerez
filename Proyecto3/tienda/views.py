@@ -8,22 +8,22 @@ from tienda.models import Ficha
 from .forms import MascotaForm
 
 
-#se cambio la vista basada en funciones a vista basada en clases, como recomendo el profe
-# def modificacion(request):
-#     query = request.GET.get('q')
-#     fichas = None
-#     if query:
-#         fichas = Ficha.objects.filter(mascota__nombre__icontains=query)
-#     contexto = {"fichas": fichas}
-#     return render(request, "tienda/modificacion.html", contexto)
+def index(request):
+    return render(request, "tienda/index.html")
 
 
-class FichaMascotaUpdate(UpdateView):
+class FichaUpdateView(UpdateView):
     model = Ficha
     form_class = MascotaForm
-    success_url = reverse_lazy("ficha_list")
     template_name = 'tienda/modificacion.html'
+    success_url = reverse_lazy('tienda:lista')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        query = self.request.GET.get('q')
+        if query:
+            context['object_list'] = Ficha.objects.filter(mascota__nombre__icontains=query)
+        return context
 
 
 #se cambio la vista basada en funciones a vista basada en clases, como recomendo el profe
@@ -49,15 +49,19 @@ class IngresarMascotaCreate(CreateView):
     template_name = 'tienda/ingreso.html'
     
 
-def index(request):
-    #fichas = Ficha.objects.all()
-    return render(request, "tienda/index.html") #, {'fichas': fichas})
-
 
 #Vista basa en clases, para ver todas las fichas listadas
 class FichaListView(ListView):
-    model = Ficha 
+    model = Ficha
+    template_name = 'tienda/ficha_list.html'
+    context_object_name = 'fichas'
    
+    # def get_queryset(self) -> Any:
+    #       queryset = super().get_queryset()
+    #       return queryset
     def get_queryset(self) -> Any:
-          queryset = super().get_queryset()
-          return queryset
+        queryset = super().get_queryset()
+        query = self.request.GET.get('q')
+        if query:
+            queryset = queryset.filter(mascota__nombre__icontains=query)
+        return queryset    
