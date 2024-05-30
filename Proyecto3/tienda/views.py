@@ -1,65 +1,57 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DeleteView, DetailView, UpdateView
 from tienda.models import Ficha
 from .forms import MascotaForm
+from django.db.models import Q
 
 
 def index(request):
-    return render(request, "tienda/index.html")
+    return render(request, "tienda/ficha_list.html")
 
 
+#Vista basada en clases, para modificar mis ngresos del form 
 class FichaUpdateView(UpdateView):
     model = Ficha
     form_class = MascotaForm
     template_name = 'tienda/modificacion.html'
-    success_url = reverse_lazy('tienda:lista')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        query = self.request.GET.get('q')
-        if query:
-            context['object_list'] = Ficha.objects.filter(mascota__nombre__icontains=query)
-        return context
+    def get_success_url(self):
+        return reverse_lazy('tienda:modificacion', kwargs={'pk': self.get_object().pk})
+ 
 
-
-#se cambio la vista basada en funciones a vista basada en clases, como recomendo el profe
-# def ingresar_mascota(request):
-#     if request.method == 'POST':
-#         form = MascotaForm(request.POST)
-#         if form.is_valid():
-#             mascota = form.save(commit=False)
-#             mascota.numero_ficha = request.POST.get('numero_ficha')
-#             mascota.save()
-#             return redirect('tienda:index')  
-#     else:
-#         form = MascotaForm()
-#     return render(request, 'tienda/ingreso.html', {'form': form})
-
-
-
-#Vista basa en clases, para llenar mi form
+#Vista basada en clases, para llenar mi form
 class IngresarMascotaCreate(CreateView):
     model = Ficha
     form_class = MascotaForm
-    success_url = reverse_lazy("tienda:index")
+    success_url = reverse_lazy("tienda:lista")
     template_name = 'tienda/ingreso.html'
     
 
 
-#Vista basa en clases, para ver todas las fichas listadas
+#Vista basada en clases, para ver todas las fichas listadas y buscar 
 class FichaListView(ListView):
     model = Ficha
-   
-    # def get_queryset(self) -> Any:
-    #       queryset = super().get_queryset()
-    #       return queryset
-    # def get_queryset(self) -> Any:
-    #     queryset = super().get_queryset()
-    #     query = self.request.GET.get('q')
-    #     if query:
-    #         queryset = queryset.filter(mascota__nombre__icontains=query)
-    #     return queryset    
+    
+    def get_queryset(self) -> QuerySet[Any]:
+        queryset = super().get_queryset()
+        busqueda = self.request.GET.get("busqueda")
+        if busqueda:
+            queryset = Ficha.objects.filter(
+                Q(dueño__nombre__icontains=busqueda) | Q(mascota__nombre__icontains=busqueda) 
+            )
+        return queryset    
+
+class FichaDelete(DeleteView):
+    model = Ficha
+    success_url = reverse_lazy('tienda:lista')
+
+
+
+class FichaDetail(DetailView):
+    model = Ficha
+
+
+

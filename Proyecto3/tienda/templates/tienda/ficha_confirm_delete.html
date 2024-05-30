@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+
+{% block bode_title %}
+Eliminar Ficha Paciente
+{% endblock bode_title %}
+
+{% block body_title %}
+{% endblock body_title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h4 class="text-center">Eliminar Ficha</h4>
+                </div>
+                <div class="card-body text-center">
+                    <p class="fs-5 fst-italic">¿Confirma eliminar la ficha de "{{ ficha.mascota }}"?</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-dark">Eliminar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center">Datos de la Ficha</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Número de Ficha:</td>
+                                <td>{{ ficha.numero_ficha }}</td>
+                            </tr>
+                            <tr>
+                                <td>Mascota:</td>
+                                <td>{{ ficha.mascota }}</td>
+                            </tr>
+                            <tr>
+                                <td>Dueño:</td>
+                                <td>{{ ficha.dueño }}</td>
+                            </tr>
+                            <tr>
+                                <td>Especie:</td>
+                                <td>{{ ficha.especie }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

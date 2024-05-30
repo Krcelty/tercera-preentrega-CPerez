@@ -1,19 +1,16 @@
 from django.urls import path
-from tienda.views import index, IngresarMascotaCreate, FichaUpdateView,FichaListView
+from tienda.views import index, IngresarMascotaCreate, FichaUpdateView,FichaListView,FichaDelete
 
 
 app_name = "tienda"
 
 urlpatterns = [
      path("", index,name="index"),
-     path("ingreso/", IngresarMascotaCreate.as_view(),name="ingreso"),
+     path("lista/list", FichaListView.as_view(), name="lista"),
+     path("ingreso/create", IngresarMascotaCreate.as_view(),name="ingreso"),
      path('modificacion/update/<int:pk>/', FichaUpdateView.as_view(), name='modificacion'),
-     path("lista/", FichaListView.as_view(), name="lista"),
+     path('eliminar/delete/<int:pk>/', FichaDelete.as_view(), name='eliminar'),
    
  ]
 
 
-# urlpatterns += [
-#     path("lista/", FichaListView.as_view,name="lista"), 
-   
-# ]

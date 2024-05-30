@@ -1,31 +1,16 @@
 {% extends 'core/base.html' %}
 
-{% block title %}
-    Modificación Paciente
-{% endblock title %}
-
 {% block bode_title %}
-    Modificación Paciente
+Modificar Ficha Paciente
 {% endblock bode_title %}
+{% block body_title %}
 
+{% endblock body_title %}
 {% block content %}
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-center mb-4">Modificar Paciente</h5>
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <h2>Modificar Ficha</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
 {% endblock content %}
-

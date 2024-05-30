@@ -34,6 +34,13 @@ class MascotaForm(forms.ModelForm):
                 raza=raza_mascota
             )
             instance.mascota = nueva_mascota
+        elif instance.mascota:
+            # Si no hay una nueva mascota, actualizamos la existente
+            mascota = instance.mascota
+            mascota.edad = edad_mascota if edad_mascota is not None else mascota.edad
+            mascota.sexo = sexo_mascota if sexo_mascota is not None else mascota.sexo
+            mascota.raza = raza_mascota if raza_mascota is not None else mascota.raza
+            mascota.save()
 
         if nuevo_dueño_nombre:
             nuevo_dueño = models.Dueño.objects.create(nombre=nuevo_dueño_nombre)
