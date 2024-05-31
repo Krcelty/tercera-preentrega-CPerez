@@ -1,32 +1,40 @@
-# Tercera Pre-Entrega Constanza Perez
+# Proyecto Final CoderHouse
+
+Curso Python 54140
+Constanza Perez
+Profesor: Acevedo Esteban
 
 ## Acerca del proyecto
 
-El proyecto se basa en una aplicación de gestión de fichas de pacientes en una veterinaria. Permite ingresar nuevas fichas de pacientes, buscar fichas existentes por el nombre de la mascota y mostrar los detalles de las fichas encontradas.
+El proyecto consiste en desarrollar una plataforma web destinada a la gestión de fichas veterinarias de pacientes, enfocada en veterinarios independientes y sus colegas. Esta herramienta permitirá un control eficiente y organizado de la información de los pacientes, facilitando el acceso, la actualización y la gestión de los datos médicos de los animales.
 
-## Aplicaciones
+## Funcionalidades Principales
 
-tienda: Contiene las vistas, modelos, formularios y plantillas relacionadas con la gestión de las fichas de pacientes.
+ ## Registro y Autenticación de Usuarios
+        -Registro de Usuarios: Los veterinarios pueden crear cuentas de usuario proporcionando información básica y credenciales seguras.
+        -Inicio de Sesión: Sistema de autenticación que permite a los usuarios registrados acceder a la plataforma.
 
-## Modelos
+ ##  Gestión de Fichas Veterinarias
+        -Crear Fichas: Los veterinarios pueden crear fichas para nuevos pacientes, incluyendo detalles como nombre del animal, especie, raza, edad, historial médico y notas adicionales.
+        -Editar Fichas: Capacidad de modificar la información existente de los pacientes para mantener los datos actualizados.
+        -Eliminar Fichas: Funcionalidad para eliminar fichas de pacientes que ya no necesitan ser monitoreados o registrados.
+        -Visualizar Fichas: Interfaz para ver las fichas de los pacientes de manera organizada y detallada.
 
-En models.py se definen los siguientes modelos:
+## Colaboración entre Veterinarios
+        -Cuentas Múltiples: Permite a los veterinarios invitar a colegas para crear cuentas adicionales bajo el mismo servidor, facilitando la colaboración y el acceso compartido a las fichas.
+        -Roles y Permisos: Configuración de roles para determinar el nivel de acceso y permisos de cada usuario en la plataforma.
 
-Mascota: Representa a una mascota con un nombre.
-Dueño: Representa a un dueño con un nombre.
-Especie: Representa a una especie con un nombre.
-Ficha: Representa una ficha de paciente que contiene un número de ficha, una referencia a una mascota, un dueño y una especie.
+## Seguridad y Privacidad
+        -Control de Acceso: Implementación de medidas de seguridad para garantizar que solo usuarios autorizados puedan acceder a la información.
+
+## Interfaz de Usuario Intuitiva
+        -Panel de Control: Un tablero principal que resume la información clave y proporciona accesos rápidos a las funcionalidades más utilizadas.
+        -Búsqueda y Filtrado: Herramientas para buscar y filtrar fichas de pacientes, facilitando la localización rápida de información específica.
 
 ## Mejoras Futuras
-
-Las mejoras futuras seran:
-1-Implementar la capacidad de editar y eliminar fichas existentes.
-2-Añadir validaciones adicionales a los formularios para garantizar la integridad de los datos.
-3-Mejorar la interfaz de usuario para hacerla más intuitiva y fácil de usar.
-4-Implementar autenticación de usuarios para permitir que solo usuarios autorizados accedan a las funcionalidades de gestión de fichas.
-5-Agregar mas datos a la ficha.
+        -Crear 2 tipos de usuarios, el que administrara, en el caso que sea solo 1 persona quedara el como administrador y si lo usaran mas personas que tengas permisos mas simples. 
+        -Agregar el descargado de la ficha medica, para que descargue un pdf.
+        -Poder agregar mas observaciones y no tener que colocarlas en el mismo input.
 
 ## Problemas conocidos
-
--La búsqueda de fichas actualmente solo se realiza por nombre de mascota, lo que podría causar problemas si hay mascotas con nombres similares o duplicados.
--No se está manejando adecuadamente el caso en el que se ingrese un nombre de mascota que no coincide con ninguna ficha existente. Esto puede resultar en una respuesta vacía sin indicación clara al usuario.
+        -Agregar Fecha de la ficha me esta tirando error.
