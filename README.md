@@ -20,14 +20,14 @@ El proyecto consiste en desarrollar una plataforma web destinada a la gestión d
         -Eliminar Fichas: Funcionalidad para eliminar fichas de pacientes que ya no necesitan ser monitoreados o registrados.
         -Visualizar Fichas: Interfaz para ver las fichas de los pacientes de manera organizada y detallada.
 
-## Colaboración entre Veterinarios
+ ## Colaboración entre Veterinarios
         -Cuentas Múltiples: Permite a los veterinarios invitar a colegas para crear cuentas adicionales bajo el mismo servidor, facilitando la colaboración y el acceso compartido a las fichas.
         -Roles y Permisos: Configuración de roles para determinar el nivel de acceso y permisos de cada usuario en la plataforma.
 
-## Seguridad y Privacidad
+ ## Seguridad y Privacidad
         -Control de Acceso: Implementación de medidas de seguridad para garantizar que solo usuarios autorizados puedan acceder a la información.
 
-## Interfaz de Usuario Intuitiva
+ ## Interfaz de Usuario Intuitiva
         -Panel de Control: Un tablero principal que resume la información clave y proporciona accesos rápidos a las funcionalidades más utilizadas.
         -Búsqueda y Filtrado: Herramientas para buscar y filtrar fichas de pacientes, facilitando la localización rápida de información específica.
 
