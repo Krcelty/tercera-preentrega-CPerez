@@ -38,3 +38,4 @@ El proyecto consiste en desarrollar una plataforma web destinada a la gestión d
 
 ## Problemas conocidos
         -Agregar Fecha de la ficha me esta tirando error.
+        -Cuando creo que usuario me redirecciona a una pagina vacia.
