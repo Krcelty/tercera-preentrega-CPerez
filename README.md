@@ -39,3 +39,7 @@ El proyecto consiste en desarrollar una plataforma web destinada a la gestión d
 ## Problemas conocidos
         -Agregar Fecha de la ficha me esta tirando error.
         -Cuando creo que usuario me redirecciona a una pagina vacia.
+        -Falta que se pueda subir una foto.
+        -Agregar en la pagina de contacto que hable sobre mi.
+        -Hacer el video de presentacion.
+        -Mejorar visualmente la modificacion, no estan alineado los campos y mejorar viaualmente los detalles de la ficha tampoco estan alineado.
