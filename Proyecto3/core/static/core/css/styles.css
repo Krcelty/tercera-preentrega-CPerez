@@ -4260,6 +4260,11 @@ textarea.form-control-lg {
   margin-left: calc(-0.5 * var(--bs-card-cap-padding-x));
 }
 
+.card-header-custom {
+  font-weight: bold;
+  font-size: 1.25rem; /* Ajusta según tus necesidades */
+}
+
 .card-img-overlay {
   position: absolute;
   top: 0;

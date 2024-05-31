@@ -27,10 +27,7 @@ Listado de Fichas Pacientes
                 <th scope="col">Mascota</th>
                 <th scope="col">Dueño</th>
                 <th scope="col">Especie</th>
-                <th scope="col">Sexo</th>
-                <th scope="col">Raza</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Observacion</th>
+                <th scope="col">Acciones</th>
                 <th scope="col">Acciones</th>
                 <th scope="col">Acciones</th>
             </tr>
@@ -42,10 +39,7 @@ Listado de Fichas Pacientes
                 <td>{{ ficha.mascota }}</td>
                 <td>{{ ficha.dueño }}</td>
                 <td>{{ ficha.especie }}</td>
-                <td>{{ ficha.sexo_mascota }}</td>
-                <td>{{ ficha.raza_mascota }}</td>
-                <td>{{ ficha.edad_mascota }}</td>
-                <td class="col-4">{{ ficha.consulta }}</td>
+                <td><a href="{% url 'tienda:detalle' pk=ficha.pk %}" class="btn btn-dark btn-sm text-white">Ver</a></td>
                 <td><a href="{% url 'tienda:modificacion' pk=ficha.pk %}" class="btn btn-dark btn-sm text-white">Modificar</a></td>
                 <td><a href="{% url 'tienda:eliminar' pk=ficha.pk %}" class="btn btn-dark btn-sm text-white">Eliminar</a></td>
             </tr>

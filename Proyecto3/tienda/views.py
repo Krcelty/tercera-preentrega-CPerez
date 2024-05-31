@@ -58,7 +58,6 @@ class FichaDelete(DeleteView):
     success_url = reverse_lazy('tienda:lista')
 
 
-
 class FichaDetail(DetailView):
     model = Ficha
 
