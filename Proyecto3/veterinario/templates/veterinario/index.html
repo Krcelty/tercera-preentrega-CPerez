@@ -7,14 +7,12 @@
 {% block bode_title %}
     Veterinario
 {% endblock bode_title %}
- <!-- Page Content-->
  <div class="container px-4 px-lg-5">
 
     {% if user.is_authenticated %}
         <p class="text-info ">¡Bienvenido {{ user.username | title }}!</p>
     {% endif %}
     
-    <!-- Mensaje para cuando un vendedor sea creado -->
     {% if mensaje %}
         <p class="text-info ">{{ mensaje }} ¡Bienvenido!</p>
     {% endif %}

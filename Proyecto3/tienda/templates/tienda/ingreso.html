@@ -1,27 +1,82 @@
 {% extends 'core/base.html' %}
-
 {% block title %}
-    Ingreso Paciente
 {% endblock title %}
-
 {% block bode_title %}
-<div class="text-center">
-    Ingreso Paciente
+<div class="text-center mb-3">
+    Ingreso Fichas Pacientes
 </div>
 {% endblock bode_title %}
-
 {% block content %}
-<div class="container mt-5">
+{% if messages %}
+        <div class="container col-md-10" >
+            {% for message in messages %}
+                <div class="alert alert-success">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+<div class="container mt-3">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-10">
             <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-center mb-4">Ingresar Nuevo Paciente</h5>
+                <div class="card-body bg-dark text-light">
+                    <h5 class="card-title text-center mb-3">Ingresar Nuevo Paciente</h5>
                     <form method="post">
                         {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        {{ form.numero_ficha.errors }}
+                        <div class="row mb-3">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="{{ form.numero_ficha.id_for_label }}">{{ form.numero_ficha.label }}</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-light border-light" id="{{ form.numero_ficha.id_for_label }}" name="{{ form.numero_ficha.name }}" value="{{ form.numero_ficha.value|default_if_none:'' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="{{ form.nueva_mascota.id_for_label }}">{{ form.nueva_mascota.label }}</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-light border-light" id="{{ form.nueva_mascota.id_for_label }}" name="{{ form.nueva_mascota.name }}" value="{{ form.nueva_mascota.value|default_if_none:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="{{ form.edad_mascota.id_for_label }}">{{ form.edad_mascota.label }}</label>
+                                    <input type="number" class="form-control form-control-sm bg-dark text-light border-light" id="{{ form.edad_mascota.id_for_label }}" name="{{ form.edad_mascota.name }}" value="{{ form.edad_mascota.value|default_if_none:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="{{ form.sexo_mascota.id_for_label }}">{{ form.sexo_mascota.label }}</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-light border-light" id="{{ form.sexo_mascota.id_for_label }}" name="{{ form.sexo_mascota.name }}" value="{{ form.sexo_mascota.value|default_if_none:'' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="{{ form.raza_mascota.id_for_label }}">{{ form.raza_mascota.label }}</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-light border-light" id="{{ form.raza_mascota.id_for_label }}" name="{{ form.raza_mascota.name }}" value="{{ form.raza_mascota.value|default_if_none:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="{{ form.nuevo_dueño.id_for_label }}">{{ form.nuevo_dueño.label }}</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-light border-light" id="{{ form.nuevo_dueño.id_for_label }}" name="{{ form.nuevo_dueño.name }}" value="{{ form.nuevo_dueño.value|default_if_none:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="{{ form.nueva_especie.id_for_label }}">{{ form.nueva_especie.label }}</label>
+                                    <input type="text" class="form-control form-control-sm bg-dark text-light border-light" id="{{ form.nueva_especie.id_for_label }}" name="{{ form.nueva_especie.name }}" value="{{ form.nueva_especie.value|default_if_none:'' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.motivo_consulta.id_for_label }}">{{ form.motivo_consulta.label }}</label>
+                            <textarea class="form-control form-control-sm bg-dark text-light border-light" id="{{ form.motivo_consulta.id_for_label }}" name="{{ form.motivo_consulta.name }}">{{ form.motivo_consulta.value|default_if_none:'' }}</textarea>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-light text-dark">Guardar</button>
                         </div>
                     </form>
                 </div>

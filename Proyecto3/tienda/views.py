@@ -1,3 +1,4 @@
+from django.contrib import messages
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
@@ -18,6 +19,10 @@ class FichaUpdateView(UpdateView):
     form_class = MascotaForm
     template_name = 'tienda/modificacion.html'
 
+    def form_valid(self, form):
+        messages.success(self.request, "La ficha se modificó correctamente.")
+        return super().form_valid(form)
+
     def get_success_url(self):
         return reverse_lazy('tienda:modificacion', kwargs={'pk': self.get_object().pk})
  
@@ -26,8 +31,12 @@ class FichaUpdateView(UpdateView):
 class IngresarMascotaCreate(CreateView):
     model = Ficha
     form_class = MascotaForm
-    success_url = reverse_lazy("tienda:lista")
+    success_url = reverse_lazy("tienda:ingreso")
     template_name = 'tienda/ingreso.html'
+    
+    def form_valid(self, form):
+        messages.success(self.request, "La mascota se ingresó correctamente.")
+        return super().form_valid(form)
     
 
 
