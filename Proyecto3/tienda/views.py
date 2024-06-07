@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
@@ -14,7 +15,7 @@ def index(request):
 
 
 #Vista basada en clases, para modificar mis ngresos del form 
-class FichaUpdateView(UpdateView):
+class FichaUpdateView(LoginRequiredMixin,UpdateView):
     model = Ficha
     form_class = MascotaForm
     template_name = 'tienda/modificacion.html'
@@ -28,7 +29,7 @@ class FichaUpdateView(UpdateView):
  
 
 #Vista basada en clases, para llenar mi form
-class IngresarMascotaCreate(CreateView):
+class IngresarMascotaCreate(LoginRequiredMixin,CreateView):
     model = Ficha
     form_class = MascotaForm
     success_url = reverse_lazy("tienda:ingreso")
@@ -41,7 +42,7 @@ class IngresarMascotaCreate(CreateView):
 
 
 #Vista basada en clases, para ver todas las fichas listadas y buscar 
-class FichaListView(ListView):
+class FichaListView(LoginRequiredMixin,ListView):
     model = Ficha
     
     def get_queryset(self) -> QuerySet[Any]:
@@ -53,12 +54,12 @@ class FichaListView(ListView):
             )
         return queryset    
 
-class FichaDelete(DeleteView):
+class FichaDelete(LoginRequiredMixin,DeleteView):
     model = Ficha
     success_url = reverse_lazy('tienda:lista')
 
 
-class FichaDetail(DetailView):
+class FichaDetail(LoginRequiredMixin,DetailView):
     model = Ficha
 
 
