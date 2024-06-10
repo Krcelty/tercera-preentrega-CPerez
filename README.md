@@ -8,6 +8,10 @@ Profesor: Acevedo Esteban
 
 El proyecto consiste en desarrollar una plataforma web destinada a la gestión de fichas veterinarias de pacientes, enfocada en veterinarios independientes y sus colegas. Esta herramienta permitirá un control eficiente y organizado de la información de los pacientes, facilitando el acceso, la actualización y la gestión de los datos médicos de los animales.
 
+## Video presentacion
+
+https://drive.google.com/file/d/1VkY3jAkgbXMHQmRVgRNfp8eUB6mubx7l/view?usp=drive_link
+
 ## Funcionalidades Principales
 
  ## Registro y Autenticación de Usuarios
