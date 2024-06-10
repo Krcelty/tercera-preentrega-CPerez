@@ -23,7 +23,8 @@ Listado de Fichas Pacientes
     <table class="table table-responsive text-center">
         <thead class="thead-dark">
             <tr class="table table-dark">
-                <th scope="col" class="columna-ficha" >N° de Ficha</th>
+                <th scope="col" class="columna-ficha">Fecha Ficha</th>
+                <th scope="col">N° de Ficha</th>
                 <th scope="col">Mascota</th>
                 <th scope="col">Dueño</th>
                 <th scope="col">Especie</th>
@@ -35,6 +36,7 @@ Listado de Fichas Pacientes
         <tbody>
             {% for ficha in object_list %}
             <tr>
+                <td>{{ ficha.fecha|date:"d-m-Y" }}</td>
                 <td>{{ ficha.numero_ficha }}</td>
                 <td>{{ ficha.mascota }}</td>
                 <td>{{ ficha.dueño }}</td>

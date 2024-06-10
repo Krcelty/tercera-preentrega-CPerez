@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Mascota(models.Model):
     nombre = models.CharField(max_length=255)
@@ -34,6 +35,8 @@ class Ficha(models.Model):
     dueño = models.ForeignKey(Dueño, on_delete=models.SET_NULL, null=True, blank=True)
     especie = models.ForeignKey(Especie, on_delete=models.SET_NULL, null=True, blank=True)
     consulta = models.ForeignKey(Consulta, on_delete=models.SET_NULL, null=True, blank=True)
+    fecha = models.DateTimeField(null=True, blank=True, editable=False, default=timezone.now)
+
 
     def str(self) -> str:
         return f"Ficha {self.numero_ficha}"
