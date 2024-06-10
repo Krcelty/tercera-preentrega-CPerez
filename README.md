@@ -34,6 +34,7 @@ El proyecto consiste en desarrollar una plataforma web destinada a la gestión d
 ## Mejoras Futuras
         -Crear 2 tipos de usuarios, el que administrara, en el caso que sea solo 1 persona quedara el como administrador y si lo usaran mas personas que tengas permisos mas simples. 
         -Panel para la eliminacion o modificacion de usuarios por parte del administrador.
+        -Panel de perfil de usuario.
         -Agregar el descargado de la ficha medica, para que descargue un pdf.
         -Poder agregar mas observaciones y no tener que colocarlas en el mismo input.
         -Poder agregar imagenes, examenes o recetas medicas , internas como externas de los pacientes para verlos online.

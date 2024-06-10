@@ -3,30 +3,59 @@
 {% block bode_title %}
 Modificar Ficha Paciente
 {% endblock bode_title %}
+
 {% block body_title %}
 
 {% endblock body_title %}
+
 {% block content %}
 {% if messages %}
-        <div class="container mt-4">
-            {% for message in messages %}
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
-        </div>
-    {% endif %}
-    <div class="container mt-3 bg-dark text-light text-center col-6">
-        <h2>Modificar Ficha</h2>
-        <form method="post" class="shadow-sm ">
-            {% csrf_token %}
-                <div class="form-group">
-                    {{ form.as_p }}
-                </div>
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-            <a href="{% url 'tienda:lista' %}" class="btn btn-secondary mt-3">Volver a la lista</a>
-        </form>
+    <div class="container mt-4">
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
     </div>
-    
+{% endif %}
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="bg-dark p-2 shadow text-light">
+                <h2 class="text-center">Modificar Ficha</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+        <div class="col-lg-6">
+            <div class="bg-light p-4 shadow">
+                <form method="post">
+                    {% csrf_token %}
+                    <table class="table">
+                        {% for field in form %}
+                            {% if field.name != 'motivo_consulta' %}
+                                <tr>
+                                    <th>{{ field.label_tag }}</th>
+                                    <td>{{ field }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label class="fw-bold" for="id_motivo_consulta">Motivo Consulta:</label>
+                                    <textarea class="form-control" rows="5" id="id_motivo_consulta" name="motivo_consulta">{{ form.motivo_consulta.value }}</textarea>
+                                </div>
+                            </td>
+                        </tr>
+                    <button type="submit" class="btn btn-dark mt-3 text-white me-2">Guardar Cambios</button>
+                    <a href="{% url 'tienda:lista' %}" class="btn btn-dark mt-3 text-white me-2">Volver a la lista</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
+

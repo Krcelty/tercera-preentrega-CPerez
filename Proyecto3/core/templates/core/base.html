@@ -29,7 +29,7 @@
                 {% if user.is_authenticated %}                
                         <li class="nav-item"><a class="nav-link active" href="{% url 'tienda:lista' %}">Ficha</a></li>
                         <li class="nav-item"><a class="nav-link active" href="{% url 'tienda:ingreso' %}">Ingreso</a></li>
-                        <li class="nav-item"><a class="nav-link active" >Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'core:contacto' %}">Contacto</a></li>
                         <li class="nav-item">
                             <a class="nav-link text-bg-info">{{ user.username }}</a>
                         </li>
