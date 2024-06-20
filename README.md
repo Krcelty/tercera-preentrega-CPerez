@@ -45,6 +45,3 @@ https://drive.google.com/file/d/1VkY3jAkgbXMHQmRVgRNfp8eUB6mubx7l/view?usp=drive
 
 ## Problemas conocidos
        -desorden el los urls, mejorarlo.
-        -Agregar en la pagina de contacto que hable sobre mi.
-        -Hacer el video de presentacion.
-        -Mejorar visualmente la modificacion, no estan alineado los campos.
